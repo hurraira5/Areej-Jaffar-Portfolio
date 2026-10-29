@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<div class="progress" id="progress"></div>
+
 <header>
   <div class="container nav">
     <a href="#home" class="logo">Areej<span>.</span></a>
@@ -31,14 +33,23 @@
 
   <!-- HOME -->
   <section class="hero" id="home">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
     <div class="container hero-grid">
-      <div>
-        <span class="tag">Open to work</span>
+      <div class="hero-text">
+        <span class="tag"><i class="dot"></i> Open to work</span>
         <h1>Hi, I'm <em>Areej Jaffar</em></h1>
+        <p class="typing-line">I'm a <span class="typed" id="typed"></span><span class="caret"></span></p>
         <p class="lead">A Software Engineering student and digital marketer from Karachi who builds clean, fast websites and full-stack apps, and makes sure they get found.</p>
         <div class="btns">
           <a href="#projects" class="btn btn-primary">See my projects</a>
           <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b data-count="6">0</b><span>Projects</span></div>
+          <div class="stat"><b data-count="5">0</b><span>Certifications</span></div>
+          <div class="stat"><b data-count="3" data-plus="1">0</b><span>Years teaching</span></div>
         </div>
       </div>
       <div class="avatar-wrap">
@@ -273,12 +284,105 @@
   <div class="container">&copy; <span id="year">2026</span> Areej Jaffar · Karachi, Pakistan</div>
 </footer>
 
+<button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
+
 <script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Mobile menu */
   const btn = document.getElementById('menuBtn');
   const menu = document.getElementById('menu');
   btn.addEventListener('click', () => menu.classList.toggle('open'));
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* Typing effect */
+  const roles = ['Software Engineering Student', 'Web Developer', 'Digital Marketer', 'SEO & Content Strategist'];
+  const typed = document.getElementById('typed');
+  if (reduce) {
+    typed.textContent = roles[0];
+  } else {
+    let r = 0, c = 0, deleting = false;
+    (function tick() {
+      const word = roles[r];
+      typed.textContent = word.slice(0, c);
+      let delay = deleting ? 40 : 85;
+      if (!deleting && c === word.length) { deleting = true; delay = 1400; }
+      else if (deleting && c === 0) { deleting = false; r = (r + 1) % roles.length; delay = 350; }
+      else { c += deleting ? -1 : 1; }
+      setTimeout(tick, delay);
+    })();
+  }
+
+  /* Scroll reveal (auto-applied, staggered inside each group) */
+  const groups = [
+    '.section-head', '.about-text p', '.facts', '.skill-card', '.project',
+    '.t-item', '.certs li', '.col-title', '.contact h2', '.contact p', '.contact .btns'
+  ];
+  groups.forEach(sel => {
+    document.querySelectorAll(sel).forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = Math.min(i % 6, 5) * 80 + 'ms';
+    });
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const t = e.target;
+        t.classList.add('in');
+        io.unobserve(t);
+        setTimeout(() => { t.classList.add('done'); t.style.transitionDelay = ''; }, 1300);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* Counters */
+  function runCount(el) {
+    const target = +el.dataset.count, plus = el.dataset.plus ? '+' : '';
+    if (reduce) { el.textContent = target + plus; return; }
+    const start = performance.now(), dur = 1400;
+    (function step(now) {
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + (p === 1 ? plus : '');
+      if (p < 1) requestAnimationFrame(step);
+    })(start);
+  }
+  document.querySelectorAll('[data-count]').forEach(runCount);
+
+  /* Scroll progress, header shadow, back-to-top, active nav link */
+  const progress = document.getElementById('progress');
+  const toTop = document.getElementById('toTop');
+  const header = document.querySelector('header');
+  const links = [...menu.querySelectorAll('a')];
+  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    header.classList.toggle('scrolled', h.scrollTop > 10);
+    toTop.classList.toggle('show', h.scrollTop > 500);
+    const y = h.scrollTop + 120;
+    let current = 0;
+    sections.forEach((s, i) => { if (s && s.offsetTop <= y) current = i; });
+    links.forEach((a, i) => a.classList.toggle('active', i === current));
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
+
+  /* 3D tilt on project cards and avatar (mouse devices only) */
+  if (!reduce && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.project, .skill-card, .avatar').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(700px) rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 8).toFixed(2)}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
 </script>
 </body>
 </html>
