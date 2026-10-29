@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Areej Jaffar | Software Engineering Student & Digital Marketer</title>
+  <meta name="description" content="Portfolio of Areej Jaffar: BS Software Engineering student at SZABIST, web developer and digital marketer from Karachi, Pakistan.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">Areej<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">&#9776;</button>
+    <nav>
+      <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="tag">Open to work</span>
+        <h1>Hi, I'm <em>Areej Jaffar</em></h1>
+        <p class="lead">A Software Engineering student and digital marketer from Karachi who builds clean, fast websites and full-stack apps, and makes sure they get found.</p>
+        <div class="btns">
+          <a href="#projects" class="btn btn-primary">See my projects</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+      </div>
+      <div class="avatar-wrap">
+        <div class="avatar">
+          <div class="avatar-inner">
+            AJ
+            <!-- Apni photo ko "profile.jpg" naam se isi folder mein rakh dein -->
+            <img src="profile.jpg" alt="Areej Jaffar" onerror="this.remove()">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">About me</div>
+        <h2>Design, code and growth in one place</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm a <strong>5th-semester BS Software Engineering student</strong> at SZABIST University with hands-on experience in web development, databases and Linux/Bash scripting. I've built academic systems including a full-stack POS application and a cloud resource management system based on process scheduling and deadlock concepts.</p>
+          <p>My journey in digital began with an intensive <strong>Digital Marketing</strong> course, where I learned SEO, SEM, social media marketing and content strategy. I later studied web design at IoBM, which gave me a strong grounding in HTML and CSS.</p>
+          <p>I like bridging the gap between good-looking websites and websites that actually perform: user engagement, online presence and growth. I also freelance, managing campaigns and social media for startups and small businesses.</p>
+        </div>
+        <ul class="facts">
+          <li><b>Based in</b>Karachi, Pakistan</li>
+          <li><b>Studying</b>BS Software Engineering, SZABIST</li>
+          <li><b>Freelance</b>Digital Marketer &amp; Web Designer</li>
+          <li><b>Languages</b>Urdu, English</li>
+          <li><b>Email</b><a href="mailto:areejjaffer7@gmail.com">areejjaffer7@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Skills</div>
+        <h2>What I work with</h2>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <h3>Programming</h3>
+          <div class="chips"><span>C/C++</span><span>Java</span><span>Python</span><span>PHP</span></div>
+        </div>
+        <div class="skill-card">
+          <h3>Web</h3>
+          <div class="chips"><span>HTML</span><span>CSS</span><span>React.js</span><span>Node.js</span></div>
+        </div>
+        <div class="skill-card">
+          <h3>Databases</h3>
+          <div class="chips"><span>PostgreSQL</span><span>MySQL</span><span>SQL</span><span>Normalization</span></div>
+        </div>
+        <div class="skill-card">
+          <h3>OS &amp; Scripting</h3>
+          <div class="chips"><span>Linux</span><span>Bash</span><span>Shell scripting</span></div>
+        </div>
+        <div class="skill-card">
+          <h3>Tools</h3>
+          <div class="chips"><span>Git / GitHub</span><span>VS Code</span><span>IntelliJ</span><span>Arduino</span><span>MS Office</span></div>
+        </div>
+        <div class="skill-card">
+          <h3>Digital Marketing</h3>
+          <div class="chips"><span>SEO</span><span>SEM</span><span>Meta Ads</span><span>Social media</span><span>Content writing</span><span>Email campaigns</span></div>
+        </div>
+        <div class="skill-card">
+          <h3>Concepts</h3>
+          <div class="chips"><span>OOP</span><span>SDLC</span><span>Process scheduling</span><span>Deadlock</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Projects</div>
+        <h2>Things I've built</h2>
+        <p>A mix of full-stack web apps, systems projects and hardware builds.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project">
+          <span class="num">01</span>
+          <h3>POS System</h3>
+          <div class="stack">React.js · Node.js · PostgreSQL (Neon)</div>
+          <p>Full-stack Point-of-Sale system for retail suit management. React frontend, Node.js backend and a PostgreSQL database with product and sales management.</p>
+        </article>
+        <article class="project">
+          <span class="num">02</span>
+          <h3>Cloud Computing Management System</h3>
+          <div class="stack">Scheduling &amp; Deadlock</div>
+          <p>A cloud resource management system using FCFS, SJF and Round Robin scheduling, with deadlock concepts applied to model resource allocation and process management.</p>
+        </article>
+        <article class="project">
+          <span class="num">03</span>
+          <h3>System Health Monitor</h3>
+          <div class="stack">Linux · Bash</div>
+          <p>A Bash-based utility that automates CPU, disk and memory health checks and helps manage file permissions.</p>
+        </article>
+        <article class="project">
+          <span class="num">04</span>
+          <h3>Library Management System</h3>
+          <div class="stack">SQL</div>
+          <p>A relational database with 5+ tables for book tracking, member records and automated fine calculations.</p>
+        </article>
+        <article class="project">
+          <span class="num">05</span>
+          <h3>Billing Management System</h3>
+          <div class="stack">Java</div>
+          <p>A desktop application for managing product records and generating automated receipts.</p>
+        </article>
+        <article class="project">
+          <span class="num">06</span>
+          <h3>IoT Smart Systems</h3>
+          <div class="stack">Arduino</div>
+          <p>An Automatic Plant Watering System and a Smart Dustbin built with Arduino using ultrasonic and soil sensors.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="skills" id="experience">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Experience</div>
+        <h2>Where I've worked</h2>
+      </div>
+      <div class="timeline">
+        <div class="t-item">
+          <h3>Digital Marketer &amp; Web Designer</h3>
+          <div class="where">Freelance</div>
+          <div class="when">2024 to present</div>
+          <p>Managing campaigns and social media for startups and small businesses, running my personal website and an SEO-based content strategy.</p>
+        </div>
+        <div class="t-item">
+          <h3>Teacher</h3>
+          <div class="where">The Educators, Quaidabad, Karachi</div>
+          <div class="when">Sep 2025 to Jul 2026</div>
+          <p>Full-time on-site teaching role, building leadership and time-management skills.</p>
+        </div>
+        <div class="t-item">
+          <h3>Human Resources Intern</h3>
+          <div class="where">The Citizens Foundation (TCF)</div>
+          <div class="when">Jul 2025 to Sep 2025</div>
+          <p>Assisted with HR operations and professional office management tasks, with exposure to WordPress and Human Resources Information Technology (HRIT).</p>
+        </div>
+        <div class="t-item">
+          <h3>Mathematics Teacher</h3>
+          <div class="where">The Ideal Montessori Secondary School</div>
+          <div class="when">Jan 2023 to Aug 2026</div>
+          <p>Taught secondary-level mathematics, integrating technology into classroom activities to support student learning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Education</div>
+        <h2>Learning &amp; achievements</h2>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3 class="col-title">Education</h3>
+          <div class="timeline">
+            <div class="t-item">
+              <h3>BS Software Engineering</h3>
+              <div class="where">Shaheed Zulfikar Ali Bhutto Institute of Science and Technology (SZABIST)</div>
+              <div class="when">Sep 2024 to Sep 2028</div>
+            </div>
+            <div class="t-item">
+              <h3>Diploma, Digital Marketing</h3>
+              <div class="where">Institute of Business Management (IoBM)</div>
+              <div class="when">Mar 2025 to Jul 2025</div>
+              <p>Active contributor to the Content Writing Society: blog writing, email campaigns and ad copy.</p>
+            </div>
+            <div class="t-item">
+              <h3>Diploma, Website Development</h3>
+              <div class="where">Institute of Business Management (IoBM)</div>
+              <div class="when">Oct 2023 to Feb 2024</div>
+            </div>
+            <div class="t-item">
+              <h3>Intermediate, Pre-Engineering</h3>
+              <div class="where">PAF College Karachi</div>
+              <div class="when">May 2021 to May 2023</div>
+            </div>
+            <div class="t-item">
+              <h3>Matric, Computer Science</h3>
+              <div class="where">The Citizens Foundation (TCF) School</div>
+              <div class="when">Grade: A1</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="col-title">Certifications &amp; achievements</h3>
+          <ul class="certs">
+            <li>Query Quest, Certificate of Achievement<small>SZABIST · 2026</small></li>
+            <li>Logic Design Competition, Certificate of Participation<small>SZABIST · 2025</small></li>
+            <li>Web Designing Course<small>IoBM</small></li>
+            <li>Digital Marketing Course<small>NAVTTC</small></li>
+            <li>Web Designing Course<small>Benazir Bhutto Shaheed Youth Development Program</small></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Let's work together</h2>
+      <p>Have a website, a project or a marketing idea in mind? Send me a message and I'll get back to you.</p>
+      <div class="btns">
+        <a class="btn btn-light" href="mailto:areejjaffer7@gmail.com">areejjaffer7@gmail.com</a>
+        <a class="btn btn-line" href="https://www.linkedin.com/in/areejjaffar" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">&copy; <span id="year">2026</span> Areej Jaffar · Karachi, Pakistan</div>
+</footer>
+
+<script>
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+  btn.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
